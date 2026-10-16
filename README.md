@@ -6,7 +6,8 @@ Static homepage, hosted on GitHub Pages. Everything that gets published lives in
 site/index.html                 the page (HTML + CSS in one file)
 site/images/                    photos
 site/images/instagram/          Instagram thumbnails (managed by the script)
-data/instagram.json             rolling archive of the 10 newest posts (managed by the script)
+site/resume.pdf                 resume, linked from the top bar and Professional section
+data/instagram.json             the 6 newest posts shown in the strip (managed by the script)
 scripts/update_instagram.py     pulls the Behold feed and rewrites the strip
 .github/workflows/deploy.yml    builds and deploys on every push, and daily
 ```
@@ -22,13 +23,14 @@ them alone — the daily job rewrites that block.
 ## Instagram strip
 
 Once a day (and on every push) the workflow fetches the Behold JSON feed, downloads any new
-thumbnails, keeps the 10 newest posts in `data/instagram.json`, rewrites the strip, commits
-the change and deploys. Behold's free plan returns the newest 6 posts; the archive is what
-fills the strip to 10.
+thumbnails, keeps the 6 newest posts in `data/instagram.json`, rewrites the strip, commits
+the change and deploys.
+
+Collab posts someone else authored (e.g. ones Emily posted and invited you to) never come
+through Instagram's API, so they won't appear here even though they're on your grid.
 
 - If the feed can't be fetched, the run shows a warning and the site deploys unchanged.
-- A post deleted on Instagram drops off the strip if it's still among your newest 6;
-  older ones stay until newer posts push them out.
+- A post you delete or archive on Instagram drops off the strip on the next run.
 - If a scheduled run finds nothing new for ~50 days it makes an empty commit, because
   GitHub turns off schedules on public repos after 60 days without activity.
 

@@ -6,8 +6,8 @@ newest posts in data/instagram.json, downloads each thumbnail into
 site/images/instagram/, and rewrites the strip in site/index.html between the
 <!-- instagram:start --> and <!-- instagram:end --> markers.
 
-The free Behold plan only returns the newest 6 posts; the archive is what lets
-the page show 10. Standard library only, so it runs on a bare Actions runner.
+The page shows the newest 6 posts, which is also what Behold's free plan returns.
+Standard library only, so it runs on a bare Actions runner.
 If the feed can't be fetched, nothing changes and the site deploys as-is.
 """
 from __future__ import annotations
@@ -21,7 +21,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-MAX_POSTS = 10
+MAX_POSTS = 6
 PROFILE_URL = "https://www.instagram.com/pfibiger/"
 HANDLE = "@pfibiger"
 
@@ -125,10 +125,9 @@ def render(archive: list[dict]) -> str:
         f'      <a href="{PROFILE_URL}">Follow {HANDLE} →</a>',
         '    </div>',
     ]
-    # Only show full rows: 10 posts as 2×5 once the archive has them,
-    # otherwise up to 6 as one row (2×3 on phones).
-    shown = archive[:MAX_POSTS] if len(archive) >= MAX_POSTS else archive[:6]
-    cols, cols_sm = (5, 5) if len(shown) == MAX_POSTS else (6, 3)
+    # One row of 6 (2×3 on phones).
+    shown = archive[:MAX_POSTS]
+    cols, cols_sm = 6, 3
     if shown:
         lines.append(f'    <ul class="insta-grid" style="--cols: {cols}; --cols-sm: {cols_sm}">')
         for item in shown:
