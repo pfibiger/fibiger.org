@@ -125,9 +125,13 @@ def render(archive: list[dict]) -> str:
         f'      <a href="{PROFILE_URL}">Follow {HANDLE} →</a>',
         '    </div>',
     ]
-    if archive:
-        lines.append('    <ul class="insta-grid">')
-        for item in archive:
+    # Only show full rows: 10 posts as 2×5 once the archive has them,
+    # otherwise up to 6 as one row (2×3 on phones).
+    shown = archive[:MAX_POSTS] if len(archive) >= MAX_POSTS else archive[:6]
+    cols, cols_sm = (5, 5) if len(shown) == MAX_POSTS else (6, 3)
+    if shown:
+        lines.append(f'    <ul class="insta-grid" style="--cols: {cols}; --cols-sm: {cols_sm}">')
+        for item in shown:
             dims = ""
             if item.get("width") and item.get("height"):
                 dims = f' width="{int(item["width"])}" height="{int(item["height"])}"'
