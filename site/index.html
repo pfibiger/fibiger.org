@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Philip Fibiger – Software Engineering Executive, Dad x 2, Fly Fisherman</title>
+<meta name="description" content="Philip Fibiger – Software Engineering Executive, Dad x 2, Fly Fisherman.">
+<link rel="canonical" href="https://www.fibiger.org/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.fibiger.org/">
+<meta property="og:title" content="Philip Fibiger">
+<meta property="og:description" content="Software Engineering Executive, Dad x 2, Fly Fisherman">
+<meta property="og:image" content="https://www.fibiger.org/images/flow.jpg">
+<meta name="theme-color" content="#1F4D3A">
+<link rel="preload" as="image" href="images/flow.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Literata:opsz,wght@7..72,400;7..72,500;1,7..72,400&display=swap">
+<style>
+:root {
+  --green: #1F4D3A;
+  --green-dark: #163A2C;
+  --ground: #E6E8E3;
+  --ink: #1B211D;
+  --on-green: #CFE0D6;
+  --photo-bg: #D3D7CF;
+  --display: 'Bricolage Grotesque', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: 'Literata', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+a { color: var(--green); text-underline-offset: 3px; }
+a:hover { color: #0E1A14; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* Top bar */
+.topbar {
+  background: var(--green);
+  color: #fff;
+  padding: 18px 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--display);
+  font-size: 15px;
+}
+.topbar a { color: #fff; text-decoration: none; }
+.topbar a:hover { text-decoration: underline; }
+.brand { font-weight: 700; letter-spacing: 0.02em; }
+.topbar nav { display: flex; flex-wrap: wrap; gap: 24px; }
+
+/* Hero */
+.hero {
+  min-height: 680px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px 48px 64px;
+  background-color: var(--green);
+  background-image: url(images/flow.jpg);
+  background-size: cover;
+  background-position: center 45%;
+}
+.hero h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(56px, 10vw, 128px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+.hero p { margin: 20px 0 0; font-size: 21px; font-style: italic; color: #E4EEE7; }
+.hero h1, .hero p { text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45); }
+
+/* Sections */
+main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 96px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 112px;
+}
+.row { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; scroll-margin-top: 24px; }
+.row.reverse { flex-wrap: wrap-reverse; }
+.text { flex: 1 1 420px; min-width: 0; }
+.row.reverse .text { flex-basis: 360px; }
+h2 {
+  margin: 0 0 20px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+p { margin: 0 0 16px; }
+p:last-child { margin-bottom: 0; }
+.quote {
+  margin: 0 0 24px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--green);
+}
+.photo {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--photo-bg);
+}
+.photo.square { flex: 1 1 320px; aspect-ratio: 1 / 1; object-position: 55% 40%; }
+.photo.wide { flex: 1 1 420px; aspect-ratio: 4 / 3; }
+.photo.side { flex: 1 1 360px; aspect-ratio: 4 / 3; }
+
+/* Buttons */
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; font-family: var(--display); font-size: 16px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.btn-solid { background: var(--green); color: #F4F6F2; }
+.btn-solid:hover { background: var(--green-dark); color: #fff; }
+.btn-outline { border: 1.5px solid var(--ink); color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--ground); }
+
+/* Instagram strip (contents written by scripts/update_instagram.py) */
+.insta-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.insta-head h2 { margin: 0; font-size: 32px; }
+.insta-head a { font-family: var(--display); font-weight: 500; }
+.insta-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+.insta-grid a { display: block; border-radius: 4px; overflow: hidden; background: var(--photo-bg); }
+.insta-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.insta-grid a:hover img { transform: scale(1.04); opacity: 0.92; }
+
+/* Footer */
+footer {
+  background: var(--green);
+  color: var(--on-green);
+  padding: 40px 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--display);
+  font-size: 15px;
+}
+footer .brand { color: #fff; }
+footer nav { display: flex; flex-wrap: wrap; gap: 22px; }
+footer a { color: var(--on-green); }
+footer a:hover { color: #fff; }
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .topbar, .hero, footer { padding-left: 20px; padding-right: 20px; }
+  .hero { min-height: 520px; padding-bottom: 40px; }
+  .hero p { font-size: 18px; }
+  main { padding: 64px 20px; gap: 72px; }
+  .row { gap: 32px; }
+  h2 { font-size: 38px; }
+  .quote { font-size: 24px; }
+  .insta-head h2 { font-size: 28px; }
+  .insta-grid { gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .insta-grid img { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="brand">fibiger.org</span>
+  <nav aria-label="Sections">
+    <a href="#professional">Professional</a>
+    <a href="#family">Family</a>
+    <a href="#etc">Etc</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <h1>Philip<br>Fibiger</h1>
+  <p>Software Engineering Executive, Dad x 2, Fly Fisherman</p>
+</header>
+
+<main>
+
+  <section id="professional" class="row">
+    <div class="text">
+      <h2>Professional</h2>
+      <p>I am a software engineering executive with significant experience in team building, guiding engineers, project leadership, and software design and implementation. I have managed internationally distributed engineering teams and have a history of delivering high-quality, successful software.</p>
+      <p>I’m currently the CTO of <a href="http://www.humatahealth.com">Humata Health</a>, recently acquired by R1 RCM. Most notably prior to that I lead Engineering and Product for the Care Communications portfolio at Hill-Rom after <a href="https://www.healthcareitnews.com/news/voalte-be-acquired-hill-rom-180m">their acquisition of Voalte</a>.</p>
+      <p>You can view my <a href="https://www.dropbox.com/s/zqyrb2l6e9w6xrx/resume.pdf?dl=0">resume</a>, or feel free to find me on <a href="https://www.linkedin.com/in/pfibiger">LinkedIn</a>.</p>
+      <div class="buttons">
+        <a class="btn btn-solid" href="https://www.dropbox.com/s/zqyrb2l6e9w6xrx/resume.pdf?dl=0">Resume</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/pfibiger">LinkedIn</a>
+      </div>
+    </div>
+    <img class="photo square" src="images/present.jpg" width="1200" height="927" alt="Philip speaking on stage at the VUE19 conference" loading="lazy" decoding="async">
+  </section>
+
+  <section id="family" class="row reverse">
+    <img class="photo wide" src="images/family.jpg" width="1437" height="1078" alt="Philip, Emily, Will and Ben on a hike above the sea" loading="lazy" decoding="async">
+    <div class="text">
+      <h2>Family</h2>
+      <p>I live in Winter Park, Florida, am married to <a href="http://www.instagram.com/esrussell">Emily</a>, a Professor at Rollins College, and we have two wonderful boys — <a href="https://www.flickr.com/photos/pfibiger/sets/72157623388482616/">Will (16)</a> and <a href="https://www.flickr.com/photos/pfibiger/sets/72157632270435822/">Ben (13)</a>. They keep us busy with school and activities and we try to spend as much time as possible out in New Smyrna Beach.</p>
+    </div>
+  </section>
+
+  <section id="etc" class="row">
+    <div class="text">
+      <h2>Etc</h2>
+      <p class="quote">“I’m an equal opportunity fly fisherman.”</p>
+      <p>When I can find some precious spare time, you’re likely to find me out on the water with a fly rod (trying to find redfish to cast to on the Mosquito Lagoon or working a trout stream — I’m an equal opportunity fly fisherman), working on my pizza dough recipe for my <a href="http://pfibiger.tumblr.com/post/113977133164/after-keeping-my-eye-on-them-for-a-year-or-so-i">gas-fired pizza oven</a>, figuring out how to get back out Scuba diving or cheering on the Cornell hockey team. You’ll find occasional updates on <a href="http://pfibiger.tumblr.com/">Tumblr</a> or <a href="https://www.twitter.com/pfibiger">twitter</a>.</p>
+    </div>
+    <img class="photo side" src="images/redfish.jpg" width="1437" height="1078" alt="Philip holding a redfish on the bow of a skiff" loading="lazy" decoding="async">
+  </section>
+
+  <!-- instagram:start -->
+  <section id="instagram" class="insta" aria-labelledby="insta-heading">
+    <div class="insta-head">
+      <h2 id="insta-heading">Lately on Instagram</h2>
+      <a href="https://www.instagram.com/pfibiger/">Follow @pfibiger →</a>
+    </div>
+  </section>
+  <!-- instagram:end -->
+
+</main>
+
+<footer>
+  <span class="brand">Philip Fibiger</span>
+  <nav aria-label="Social">
+    <a href="https://www.linkedin.com/in/pfibiger">LinkedIn</a>
+    <a href="https://www.instagram.com/pfibiger/">Instagram</a>
+    <a href="https://www.facebook.com/pfibiger">Facebook</a>
+    <a href="https://www.twitter.com/pfibiger">Twitter</a>
+    <a href="http://pfibiger.tumblr.com">Tumblr</a>
+  </nav>
+</footer>
+
+</body>
+</html>
